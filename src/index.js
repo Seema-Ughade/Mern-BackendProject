@@ -1,42 +1,31 @@
-import express from 'express'
+import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-
-dotenv.config(); 
+dotenv.config();
 
 const app = express();
-const hostname = process.env.HOST || 'localhost'; 
+const hostname = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-//home page
-app.get('/courses', (req , res)=>{
-    const courses = [{
-        id : 1,
-        courseName: "MERN"
-    },
-    {
-        id : 2,
-        courseName: "MEAN"
-    },
-    {
-        id : 3,
-        courseName: "MERP"
-    },
-
-   ]
-    res.send(courses);
+// Home page - courses endpoint
+app.get('/courses', (req, res) => {
+    const courses = [
+        { id: 1, courseName: "MERN" },
+        { id: 2, courseName: "MEAN" },
+        { id: 3, courseName: "MERP" }
+    ];
+    res.json(courses);
 });
 
-//services page
-app.get('/services',(req , res)=>{
+// Services page
+app.get('/services', (req, res) => {
+    res.send('Hello from services page');
+});
 
-    res.send('Hello form services page');
-
-})
-
-app.listen(port, hostname, () =>{
-    console.log(`server is running on http://${hostname}:${port}`)
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://${hostname}:${port}`);
 });
