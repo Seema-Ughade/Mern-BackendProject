@@ -6,8 +6,8 @@ import axios from 'axios'; // Import axios here
 dotenv.config();
 
 const app = express();
-const hostname = process.env.HOSTNAME;
-const port = process.env.PORT;
+const hostname = 'localhost';
+const port = 4000;
 
 app.use(cors());
 
