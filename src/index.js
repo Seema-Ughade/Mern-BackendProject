@@ -2,9 +2,12 @@ import express from 'express'
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+
+dotenv.config(); 
+
 const app = express();
-const hostname = 'localhost'
-const port = 4000;
+const hostname = process.env.HOST || 'localhost'; 
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
