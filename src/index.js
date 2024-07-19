@@ -1,15 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import axios from 'axios'; // Import axios here
 
-
-dotenv.config(); 
+dotenv.config();
 
 const app = express();
-const hostname = process.env.HOSTNAME; 
+const hostname = process.env.HOSTNAME;
 const port = process.env.PORT;
-
-
 
 app.use(cors());
 
@@ -30,6 +28,14 @@ app.get('/courses', (req, res) => {
         }
     ];
     res.send(courses);
+});
+
+// JSON data
+app.get('/albums', async (req, res) => {
+    
+        const response = await axios.get('https://jsonplaceholder.typicode.com/albums');
+        res.json(response.data);
+    
 });
 
 // Services page
