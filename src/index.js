@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config(); 
 
 const app = express();
-const hostname = process.env.HOST || 'localhost'; 
+const hostname = process.env.HOSTNAME || 'localhost'; 
 const port = process.env.PORT || 3000;
 
 
